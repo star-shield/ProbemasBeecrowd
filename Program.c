@@ -868,36 +868,49 @@ void ex109(void)
 
 void ex110(void)
 {
-    // int N, aux = 1;
+    int n;
 
-    // do
-    // {
-    //     scanf("%d", &N);
+    while (1) {
+        scanf("%d", &n);
 
-    //     if(N == 0)
-    //         break;
-        
-    //     int M[N][N];
-
-
-
-        
-                
-    // }while(1);
-
-    int n = 10;
-
-    for(int i = 0; i < n ; i++)
-    {
-        for(int j = 0; j < n; j++)
-        {
-            if(i == 0 ||i == n - 1 || j == 0 || j == n - 1)
-                printf("* ");
-            else   
-                printf("  ");
+        if (n == 0) {
+            break;
         }
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                int cima = i;
+                int baixo = n - 1 - i;
+                int esquerda = j;
+                int direita = n - 1 - j;
+
+                int menor = cima;
+
+                if (baixo < menor)
+                    menor = baixo;
+
+                if (esquerda < menor)
+                    menor = esquerda;
+
+                if (direita < menor)
+                    menor = direita;
+
+                int valor = menor + 1;
+
+                if (j == 0)
+                    printf("%3d", valor);
+                else
+                    printf(" %3d", valor);
+            }
+
+            printf("\n");
+        }
+
         printf("\n");
     }
+    
 }
 
 typedef void (*Funcao)(void);
