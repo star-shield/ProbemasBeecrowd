@@ -912,6 +912,28 @@ void ex110(void)
     }
     
 }
+void ex111(void)
+{
+    int n;
+    
+    while (scanf("%d", &n) && n != 0) {
+
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+
+                if (j > 0)
+                    printf(" ");
+
+                printf("%d", abs(i - j) + 1);
+            }
+
+            printf("\n");
+        }
+
+        printf("\n");
+    }
+}
 
 typedef void (*Funcao)(void);
 
@@ -937,14 +959,15 @@ void menu(void){
         "fibonacci em vetor","preenchimento de vetor II","preenchimento de vetor III","preenchimento de vetor IV",
         "menor e posição","linha na matriz","Coluna na Martiz","Acima da Diagonal Principal","Abaixo da Diagonal Principal",
         "Acima da Diagonal Secundaria","Abaixo da Diagonal Secundaria","Area Superior","Area Inferior","Area Esquerda",
-        "Area Direita","Matriz Quadrada I"
+        "Area Direita","Matriz Quadrada I","Matriz Quadrada II"
     };
     int quantidade = 0;
 
     while (nomes[quantidade] != NULL) {
         quantidade++;
     }
-        for(int i=0;i<quantidade;i++)printf("%3d - %s\n",i+1,nomes[i]);
+        for(int i=0;i<quantidade;i++)
+            printf("%3d - %s\n",i+1,nomes[i]);
     }
 
 int main(void){
@@ -960,7 +983,7 @@ int main(void){
         ex81,ex82,ex83,ex84,ex85,ex86,ex87,ex88,ex89,ex90,
         ex91,ex92,ex93,ex94,ex95,ex96,ex97,ex98,ex99,ex100,
         ex101,ex102,ex103,ex104,ex105,ex106,ex107,ex108,ex109,
-        ex110
+        ex110,ex111
     };
 
 #if EXERCICIO >= 1 && EXERCICIO <= 200
@@ -968,7 +991,7 @@ int main(void){
 #else
     int opcao;
     menu();
-    printf("\nEscolha o exercício: ");
+    printf("\nEscolha o exercicio: ");
     if(scanf("%d",&opcao)==1 && opcao>=1 && opcao<=200)
         funcoes[opcao-1]();
     else
